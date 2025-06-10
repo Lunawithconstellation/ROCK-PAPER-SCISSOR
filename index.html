@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="rps.css">
+</head>
+<body>
+    
+    <div class="game-container">
+        <h1>🎮 Rock Paper Scissors</h1>
+
+        <!-- Game Mode Selection -->
+        <div class="game-mode-selection active" id="gameModeSelection">
+            <h2 style="color: #333; margin-bottom: 30px;">Choose Game Mode</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn computer-mode" onclick="selectMode('computer')">
+                    🤖 Play vs Computer
+                </button>
+                <button class="mode-btn" onclick="selectMode('player')">
+                    👥 Play 1 vs 1
+                </button>
+            </div>
+        </div>
+
+        <!-- Round Selection -->
+        <div class="round-selection" id="roundSelection">
+            <h2 style="color: #333; margin-bottom: 20px;">How many rounds?</h2>
+            <p style="color: #666; margin-bottom: 20px;">Choose an odd number of rounds</p>
+            <div class="round-options">
+                <button class="round-btn" onclick="selectRounds(1)">1 Round</button>
+                <button class="round-btn" onclick="selectRounds(3)">3 Rounds</button>
+                <button class="round-btn" onclick="selectRounds(5)">5 Rounds</button>
+                <button class="round-btn" onclick="selectRounds(7)">7 Rounds</button>
+                <button class="round-btn" onclick="selectRounds(9)">9 Rounds</button>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area" id="gameArea">
+            <div class="score-board">
+                <div class="score">
+                    <h4 id="player1Name">Player 1</h4>
+                    <div class="number" id="player1Score">0</div>
+                </div>
+                <div class="score">
+                    <h4>Round</h4>
+                    <div class="number"><span id="currentRound">1</span>/<span id="totalRounds">3</span></div>
+                </div>
+                <div class="score">
+                    <h4 id="player2Name">Player 2</h4>
+                    <div class="number" id="player2Score">0</div>
+                </div>
+            </div>
+
+            <div class="round-info" id="roundInfo">
+                Round 1 - Make your choice!
+            </div>
+
+            <div class="players-area">
+                <div class="player" id="player1Area">
+                    <h3 id="player1Title">Player 1</h3>
+                    <div class="choice-display" id="player1Choice">❓</div>
+                    <div class="choice-buttons" id="player1Buttons">
+                        <button class="choice-btn" onclick="makeChoice(1, 'rock')">🪨</button>
+                        <button class="choice-btn" onclick="makeChoice(1, 'paper')">📄</button>
+                        <button class="choice-btn" onclick="makeChoice(1, 'scissors')">✂️</button>
+                    </div>
+                </div>
+
+                <div class="vs-indicator">VS</div>
+
+                <div class="player" id="player2Area">
+                    <h3 id="player2Title">Player 2</h3>
+                    <div class="choice-display" id="player2Choice">❓</div>
+                    <div class="choice-buttons" id="player2Buttons">
+                        <button class="choice-btn" onclick="makeChoice(2, 'rock')">🪨</button>
+                        <button class="choice-btn" onclick="makeChoice(2, 'paper')">📄</button>
+                        <button class="choice-btn" onclick="makeChoice(2, 'scissors')">✂️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-message" id="resultMessage"></div>
+
+            <div class="control-buttons">
+                <button class="control-btn" onclick="nextRound()" id="nextRoundBtn" style="display: none;">Next Round</button>
+                <button class="control-btn reset-btn" onclick="resetGame()">🔄 New Game</button>
+            </div>
+        </div>
+
+        <!-- Final Results -->
+        <div class="results" id="results">
+            <h2 style="color: #333; margin-bottom: 30px;">🏆 Game Over!</h2>
+            <div class="result-message" id="finalResult"></div>
+            <div class="score-board">
+                <div class="score">
+                    <h4 id="finalPlayer1Name">Player 1</h4>
+                    <div class="number" id="finalPlayer1Score">0</div>
+                </div>
+                <div class="score">
+                    <h4 id="finalPlayer2Name">Player 2</h4>
+                    <div class="number" id="finalPlayer2Score">0</div>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <button class="control-btn" onclick="resetGame()">🎮 Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rps.js"></script>
+</body>
+</html>
